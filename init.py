@@ -1,4 +1,5 @@
 import os;
+from os import path
 import shutil;
 import json;
 
@@ -8,8 +9,9 @@ if reply[0] != 'y':
     print("Aborted.")
     exit -1;
 
-# Delete ./src recursively
-shutil.rmtree("./src")
+# Delete ./src recursively if it exists
+if path.exists("./src"):
+    shutil.rmtree("./src")
 os.mkdir("./src")
 os.mkdir("./src/external")
 
