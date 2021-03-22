@@ -1,0 +1,8 @@
+{
+    "repos":[
+        {
+            "url":"https://github.com/RobotWebTools/ros2-web-bridge.git",
+            "type":"external"
+        }
+    ]
+}
