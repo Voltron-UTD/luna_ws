@@ -9,11 +9,20 @@ if reply[0] != 'y':
     print("Aborted.")
     exit -1;
 
-# Delete ./src recursively if it exists
-if path.exists("./src"):
-    shutil.rmtree("./src")
+# Remove existing directories
+dirs_to_clear = ["./src","./install","./build","./log"]
+for dir in dirs_to_clear:
+    if path.exists(dir):
+        shutil.rmtree(dir)
+
 os.mkdir("./src")
 os.mkdir("./src/external")
+
+def clone(url, branch):
+    os.system("git clone {}".format(url))
+    os.chdir(url.split('/')[-1])
+    os.system("git checkout {}".format(branch))
+    os.chdir("..")
 
 # Load JSON data from file
 with open('luna_repos.json') as json_file:
@@ -27,10 +36,13 @@ with open('luna_repos.json') as json_file:
         # If repo is marked external, send to /src/external
         if repo['type'] == 'external':
             os.chdir('./external')
-            os.system("git clone {}".format(repo['url']))
+            clone(repo.get('url'),repo.get('branch'))
             os.chdir('..')
         # Else put directly in /src
         else:
-            os.system("git clone {}".format(repo['url']))
+            clone(repo['url'],repo['branch'])
+
+
 
 print("[init.py] Done! Luna WS is ready to be built and sourced. 🎉")
+print("[init.py] Try running 'colcon build'")

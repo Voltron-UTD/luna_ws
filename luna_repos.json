@@ -1,12 +1,14 @@
 {
     "repos":[
         {
-            "url":"https://github.com/RobotWebTools/ros2-web-bridge.git",
-            "type":"external"
+            "url":"https://github.com/Voltron-UTD/LidarInterface",
+            "type":"perception",
+            "branch":"main"
         },
         {
-            "url":"https://github.com/Voltron-UTD/LidarInterface",
-            "type":"perception"
+            "url":"https://github.com/lgsvl/ros2-lgsvl-bridge",
+            "type":"external",
+            "branch":"foxy-devel"
         }
     ]
 }
