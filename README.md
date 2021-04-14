@@ -5,6 +5,28 @@ A very simple ROS workspace setup, with an automated init script.
 
 Is this overengineering? Maybe. But it creates a consistent setup for every developer, every time, and that could save some headaches.
 
+## Structure
+```
+luna_ws
+    src/
+        package_A/
+            src/
+            ...
+        package_B/
+            ...
+        external/
+            external_package_A/
+                ...
+    build/
+        ...
+    install/
+        ...
+    log/
+        ...
+```
+
+Note that `build`,`install`, and `log` are generated when you first run `colcon build`.
+
 ## Setup
 ```
 $ python3 init.py
