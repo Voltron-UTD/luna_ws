@@ -9,6 +9,11 @@
             "url":"https://github.com/lgsvl/ros2-lgsvl-bridge",
             "type":"external",
             "branch":"foxy-devel"
+        },
+        {
+            "url":"https://github.com/Voltron-UTD/luna_ws/blob/main/luna_repos.json",
+            "type":"demo",
+            "branch":"main"
         }
     ]
 }
